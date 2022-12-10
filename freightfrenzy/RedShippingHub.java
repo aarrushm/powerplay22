@@ -12,7 +12,7 @@ import org.firstinspires.ftc.teamcode.vuforia.VuforiaFTC;
 
 import java.util.Random;
 
-@Autonomous(name="RedWarehouse", group="Autonomous") // @Autonomous(...) is the other common choice
+//@Autonomous(name="RedWarehouse", group="Autonomous") // @Autonomous(...) is the other common choice
 // @Disabled
 public class RedShippingHub extends LinearOpMode {
 

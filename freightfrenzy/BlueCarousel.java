@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.vuforia.VuforiaFTC;
 
-@Autonomous (name="BlueCarousel", group="Autonomus")
+//@Autonomous (name="BlueCarousel", group="Autonomus")
 public class BlueCarousel extends LinearOpMode {
 /*
 detect level

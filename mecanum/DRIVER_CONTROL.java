@@ -20,8 +20,6 @@ public class DRIVER_CONTROL extends LinearOpMode implements Runnable {
 
     /* Declare OpMode members. */
     private ElapsedTime runtime = new ElapsedTime();
-    private Armslide arm = null;
-    private Armslide.level level = Armslide.level.LEVEL_0;
     private boolean opmodeactive = false;
     @Override
     public void runOpMode() {
@@ -37,7 +35,8 @@ public class DRIVER_CONTROL extends LinearOpMode implements Runnable {
         runtime.reset();
 
         Servos intake = new Servos(hardwareMap, telemetry);
-        SLIDE2 motor = new SLIDE2(hardwareMap, telemetry);
+        Slide4 side = new Slide4(hardwareMap, telemetry);
+        Slide3 motor = new Slide3(hardwareMap, telemetry);
 
         Thread t = new Thread(this, "arm thread");
         t.start();
@@ -51,29 +50,12 @@ public class DRIVER_CONTROL extends LinearOpMode implements Runnable {
 
             drive.setWeightedDrivePower(
                     new Pose2d(
-                            -gamepad1.left_stick_y,
-                            -gamepad1.left_stick_x,
-                            -gamepad1.right_stick_x
+                            -gamepad1.left_stick_y*0.5,
+                            -gamepad1.left_stick_x*0.5,
+                            -gamepad1.right_stick_x*0.5
                     )
             );
 
-            // arm movement to assigned level (0,1,2,3)
-
-            /*if (gamepad1.a == true) {
-                level = Armslide.level.LEVEL_0;
-                //RobotLog.d("Button click A");
-            } else if (gamepad1.b == true) {
-                level = Armslide.level.LEVEL_1;
-                //RobotLog.d("Button click B");
-            } else if (gamepad1.x == true) {
-                level = Armslide.level.LEVEL_2;
-                //RobotLog.d("Button click X");
-            } else if (gamepad1.y == true) {
-                level = Armslide.level.LEVEL_3;
-                //RobotLog.d("Button click Y");
-            } else if (gamepad1.left_bumper == true) {
-                level = Armslide.level.INTAKE;
-            }*/
 
             // intake + outtake
             if (gamepad2.right_bumper == true) {
@@ -90,6 +72,14 @@ public class DRIVER_CONTROL extends LinearOpMode implements Runnable {
                 motor.stop();
             }
 
+            if (gamepad2.a == true){
+                side.runforward(1000,0);
+            } else if (gamepad2.b == true){
+                side.runbackward(1000,0);
+            } else {
+                side.stop();
+            }
+
 
         }
 
@@ -100,7 +90,6 @@ public class DRIVER_CONTROL extends LinearOpMode implements Runnable {
     public void run() {
         RobotLog.d("inside thread");
         while(opmodeactive == true) {
-            //arm.MoveToLevel(level);
         }
     }
 }

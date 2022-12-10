@@ -9,7 +9,7 @@ import org.firstinspires.ftc.teamcode.vuforia.VuforiaFTC;
 
 import java.util.Random;
 
-@Autonomous(name="BlueWarehouse", group="Autonomous") // @Autonomous(...) is the other common choice
+//@Autonomous(name="BlueWarehouse", group="Autonomous") // @Autonomous(...) is the other common choice
 // @Disabled
 public class BlueShippingHub extends LinearOpMode {
 

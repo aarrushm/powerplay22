@@ -9,7 +9,7 @@ import org.firstinspires.ftc.teamcode.freightfrenzy.Intake;
 import org.firstinspires.ftc.teamcode.freightfrenzy.Motion;
 import org.firstinspires.ftc.teamcode.vuforia.VuforiaFTC;
 
-@Autonomous (name="RedCarousel", group="Autonomus")
+//@Autonomous (name="RedCarousel", group="Autonomus")
 public class RedCarousel extends LinearOpMode {
 
 /*
