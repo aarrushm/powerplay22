@@ -22,12 +22,10 @@ public class VuforiaFTC {
     private VuforiaLocalizer vuforia;
     private TFObjectDetector tfod;
 
-    private static final String TFOD_MODEL_ASSET = "FreightFrenzy_BCDM.tflite";
+    private static final String TFOD_MODEL_ASSET = "sleeve.tflite";
     private static final String[] LABELS = {
-            "Ball",
-            "Cube",
-            "Duck",
-            "Marker"
+            "green",
+            "pink"
     };
 
         public enum barcode_level {
@@ -124,7 +122,7 @@ public class VuforiaFTC {
 
                     if (thislabel == LABELS[0]) {//Checks if detected object is a Ball
                         //Found Sleeve 1
-                        level = barcode_level.SLEEVE_3; // Assuming that if the Duck is not detected it is on the left
+                        level = barcode_level.SLEEVE_2; // Assuming that if the Duck is not detected it is on the left
                         detected = true;//boolean that while loop runs on so that while loop is exited after if statement is finished
                         telemetry.addData(String.format("Sleeve Detected"),"");
                         RobotLog.d("Sleeve Detected");
@@ -132,20 +130,12 @@ public class VuforiaFTC {
                        break;//exit loop
                     }if (thislabel == LABELS[1]) {//Checks if detected object is a Cube
                         //Found Sleeve 1
-                        level = barcode_level.SLEEVE_2; // Assuming that if the Duck is not detected it is on the left
+                        level = barcode_level.SLEEVE_1; // Assuming that if the Duck is not detected it is on the left
                         detected = true;//boolean that while loop runs on so that while loop is exited after if statement is finished
                         telemetry.addData(String.format("Sleeve Detected"),"");
                         RobotLog.d("Sleeve Detected");
                         tfod.deactivate();//stop detecting
                         break;//exit loop
-                    }if (thislabel == LABELS[2]) {//Checks if detected object is a Duck
-                    //Found Sleeve 1
-                    level = barcode_level.SLEEVE_1; // Assuming that if the Duck is not detected it is on the left
-                    detected = true;//boolean that while loop runs on so that while loop is exited after if statement is finished
-                    telemetry.addData(String.format("Sleeve Detected"),"");
-                    RobotLog.d("Sleeve Detected");
-                    tfod.deactivate();//stop detecting
-                    break;//exit loop
                     }
                     i++;
                 }

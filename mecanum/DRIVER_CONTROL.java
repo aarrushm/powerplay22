@@ -57,7 +57,7 @@ public class DRIVER_CONTROL extends LinearOpMode implements Runnable {
             );
 
 
-            // intake + outtake
+            // intake + outtake5
             if (gamepad2.right_bumper == true) {
                 intake.forwardMAX();
             } else if (gamepad2.left_bumper == true) {
@@ -65,17 +65,17 @@ public class DRIVER_CONTROL extends LinearOpMode implements Runnable {
             }
 
             if (gamepad1.right_bumper == true){
-                motor.runforward(2000,0);
+                motor.runforward(7000,0);
             } else if (gamepad1.left_bumper == true){
-                motor.runbackward(2000,0);
+                motor.runbackward(7000,0);
             }else{
                 motor.stop();
             }
 
             if (gamepad2.a == true){
-                side.runforward(1000,0);
+                side.runforward(600,0);
             } else if (gamepad2.b == true){
-                side.runbackward(1000,0);
+                side.runbackward(600,0);
             } else {
                 side.stop();
             }

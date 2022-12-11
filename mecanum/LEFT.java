@@ -64,7 +64,7 @@ public class LEFT extends LinearOpMode {
                 drive.setPoseEstimate(new Pose2d());
                 drive.followTrajectory(traj2);
                 side.runforward(850,500);
-                drive.turn(Math.toRadians(-85));
+                drive.turn(Math.toRadians(90));
                 side.runbackward(850,500);
                 drive.setPoseEstimate(new Pose2d());
                 drive.followTrajectory(traj3);
@@ -89,7 +89,7 @@ public class LEFT extends LinearOpMode {
                 drive.setPoseEstimate(new Pose2d());
                 drive.followTrajectory(traj2);
                 side.runforward(850,500);
-                drive.turn(Math.toRadians(85));
+                drive.turn(Math.toRadians(-90));
                 side.runbackward(850,500);
                 drive.setPoseEstimate(new Pose2d());
                 drive.followTrajectory(traj3);
